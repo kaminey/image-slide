@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+	<title>Image Slide Show</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		#content
+		{
+			margin-left: 25%;
+			margin-top: 5%;
+			width: 100%;
+		}
+		#image_placeholder
+		{
+			border: solid;
+			border-width: 2px;
+			width: 50%;
+			height: 500px;
+		}
+		#placeholder
+		{
+			width: 100%;
+			height: 100%;
+		}
+		#id_button
+		{
+			padding-left: 20%;
+			padding-top: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<div id="image_placeholder">
+		<img  id = "placeholder" src="red_bear.jpg">
+		</div>
+		<div id="id_button">
+			<button id="left_button" onclick="previous();">PREVIOUS</button>
+			<button id="right_button" onclick="next();">NEXT</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+var image_location = ["red_bear.jpg", "white_dog.jpeg", "horse.jpeg", "green_lion.jpeg"];
+var offset = 0;
+var placeholder = document.getElementById("placeholder");
+function next()
+{
+	if(offset>= image_location.length-1)
+	{
+		offset = 0;
+	}
+	else
+	{
+		offset++;
+	}
+	placeholder.setAttribute("src", image_location[offset]);
+}
+
+function previous()
+{
+	if(offset<=0)
+	{
+		offset = image_location.length -1;
+	}
+	else
+	{
+		offset--;
+	}
+	placeholder.setAttribute("src", image_location[offset]);
+}
+</script>
